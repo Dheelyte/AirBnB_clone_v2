@@ -14,6 +14,9 @@ class City(BaseModel, Base):
     """
     # initialize class for file/db storage type
     __tablename__ = 'cities'
+    __table_args__ = ({
+        'mysql_default_charset': 'latin1'
+    })
     name = Column(String(128), nullable=False)
     state_id = Column(String(60), ForeignKey('states.id'), nullable=False)
     places = relationship('Place', cascade='all, delete', backref='cities')
