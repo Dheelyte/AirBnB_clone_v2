@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python2
 """This is the place class"""
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String, Float, Integer, ForeignKey, Table
@@ -12,7 +12,8 @@ place_amenity = Table('place_amenity', Base.metadata,
                              primary_key=True, nullable=False),
                       Column('amenity_id', String(60),
                              ForeignKey('amenities.id'),
-                             primary_key=True, nullable=False))
+                             primary_key=True, nullable=False),
+                             mysql_charset='latin1')
 
 
 class Place(BaseModel, Base):
